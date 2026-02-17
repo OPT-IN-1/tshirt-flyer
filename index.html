@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>容疑者Tシャツ - 料金表チラシ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #f8f8fa;
+      color: #1a1a2e;
+      overflow-x: hidden;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        linear-gradient(135deg, #fff5f5 0%, #ffffff 30%, #f0f4ff 60%, #fef3f2 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .breaking-news {
+      display: inline-block;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      padding: 8px 32px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+      animation: pulse 2.5s ease-in-out infinite;
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.25);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: clamp(18px, 2.8vw, 32px);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(14px, 2vw, 17px);
+      color: #64748b;
+      max-width: 560px;
+      line-height: 1.9;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle strong {
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    .scroll-indicator {
+      margin-top: 60px;
+      animation: bounce 2s ease-in-out infinite;
+      color: #cbd5e1;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    .scroll-indicator::after {
+      content: '▼';
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #ef4444;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* ========== SECTION COMMON ========== */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      padding: 5px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      line-height: 1.3;
+      color: #1a1a2e;
+    }
+
+    .section-desc {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.9;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    /* ========== PRICE TABLE ========== */
+    .price-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8fa 100%);
+      padding: 80px 20px;
+    }
+
+    .price-section .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .price-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .price-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #e8e8ee;
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .price-card.featured {
+      border-color: #fca5a5;
+      background: linear-gradient(180deg, #fff5f5 0%, #ffffff 40%);
+    }
+
+    .price-card.featured:hover {
+      border-color: #ef4444;
+      box-shadow: 0 20px 50px rgba(239, 68, 68, 0.12);
+    }
+
+    .price-card.featured::before {
+      content: '一番人気';
+      position: absolute;
+      top: 18px;
+      right: -28px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      padding: 4px 40px;
+      font-size: 11px;
+      font-weight: 700;
+      transform: rotate(45deg);
+      letter-spacing: 1px;
+    }
+
+    .price-card.secret {
+      border-color: #c4b5fd;
+      background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 40%);
+    }
+
+    .price-card.secret:hover {
+      border-color: #8b5cf6;
+      box-shadow: 0 20px 50px rgba(139, 92, 246, 0.12);
+    }
+
+    .price-card.original {
+      border-color: #fde68a;
+      background: linear-gradient(180deg, #fffbeb 0%, #ffffff 40%);
+    }
+
+    .price-card.original:hover {
+      border-color: #f59e0b;
+      box-shadow: 0 20px 50px rgba(245, 158, 11, 0.12);
+    }
+
+    .card-icon {
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .card-name {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+
+    .card-desc {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      min-height: 50px;
+    }
+
+    .card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #f1f1f5;
+    }
+
+    .card-price .yen {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ef4444;
+    }
+
+    .card-price .amount {
+      font-size: 48px;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1;
+    }
+
+    .card-price .tax {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .price-card.secret .card-price .yen { color: #8b5cf6; }
+    .price-card.original .card-price .yen { color: #f59e0b; }
+
+    .card-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card-features li {
+      padding: 10px 0;
+      font-size: 14px;
+      color: #475569;
+      border-bottom: 1px solid #f5f5f9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-features li:last-child {
+      border-bottom: none;
+    }
+
+    .card-features li::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: #fef2f2;
+      color: #ef4444;
+      font-weight: 700;
+      font-size: 11px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .price-card.secret .card-features li::before {
+      background: #f5f3ff;
+      color: #8b5cf6;
+    }
+
+    .price-card.original .card-features li::before {
+      background: #fffbeb;
+      color: #f59e0b;
+    }
+
+    /* ========== GALLERY ========== */
+    .gallery-section {
+      background: #f8f8fa;
+      overflow: hidden;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      background: #fff;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 16px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay-text {
+      font-size: 12px;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .gallery-number {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(239, 68, 68, 0.9);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ========== SECRET SECTION ========== */
+    .secret-section {
+      background: linear-gradient(180deg, #f8f8fa 0%, #f5f3ff 50%, #f8f8fa 100%);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .secret-section .inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .secret-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #fff;
+      padding: 6px 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+    }
+
+    .secret-section h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+    }
+
+    .secret-section h2 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .secret-section > .inner > p {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 12px;
+    }
+
+    .secret-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .secret-image {
+      flex: 0 0 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+      border: 3px solid #c4b5fd;
+    }
+
+    .secret-image img {
+      width: 100%;
+      display: block;
+    }
+
+    .secret-info {
+      flex: 1;
+    }
+
+    .secret-info h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: #7c3aed;
+      margin-bottom: 12px;
+    }
+
+    .secret-info p {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .secret-price-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 900;
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+    }
+
+    @media (max-width: 640px) {
+      .secret-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .secret-image {
+        flex: none;
+        width: 240px;
+      }
+    }
+
+    /* ========== ORIGINAL SECTION ========== */
+    .original-section {
+      background: linear-gradient(180deg, #f8f8fa 0%, #fffbeb 50%, #f8f8fa 100%);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .original-section .inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .original-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      padding: 6px 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+    }
+
+    .original-section h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      margin-bottom: 24px;
+      color: #1a1a2e;
+    }
+
+    .original-section h2 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .original-section > .inner > p {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 32px;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid #fde68a;
+      border-radius: 16px;
+      padding: 32px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(245, 158, 11, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(245, 158, 11, 0.12);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      font-weight: 900;
+      font-size: 18px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .step h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #d97706;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    /* ========== SUMMARY TABLE ========== */
+    .summary-section {
+      background: #fff;
+      padding: 80px 20px;
+    }
+
+    .summary-section .inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 48px;
+      font-size: 16px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-table thead th {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      padding: 18px 24px;
+      font-weight: 700;
+      text-align: left;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .summary-table thead th:last-child {
+      text-align: right;
+    }
+
+    .summary-table tbody td {
+      padding: 24px;
+      border-bottom: 1px solid #f1f1f5;
+      vertical-align: top;
+      background: #fff;
+    }
+
+    .summary-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .summary-table tbody tr {
+      transition: background 0.2s ease;
+    }
+
+    .summary-table tbody tr:hover td {
+      background: #fafafa;
+    }
+
+    .summary-table .product-name {
+      font-weight: 900;
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: #1a1a2e;
+    }
+
+    .summary-table .product-desc {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .summary-table .price-cell {
+      text-align: right;
+      font-weight: 900;
+      font-size: 26px;
+      white-space: nowrap;
+      color: #1a1a2e;
+    }
+
+    .summary-table .price-cell .tax-note {
+      display: block;
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .table-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-red { background: #fef2f2; color: #ef4444; }
+    .badge-purple { background: #f5f3ff; color: #8b5cf6; }
+    .badge-gold { background: #fffbeb; color: #d97706; }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #1a1a2e;
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .footer .maria {
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    .footer .contact {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .price-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .summary-table .product-name {
+        font-size: 15px;
+      }
+
+      .summary-table .price-cell {
+        font-size: 22px;
+      }
+
+      section {
+        padding: 60px 16px;
+      }
+    }
+
+    /* ========== LIGHTBOX ========== */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-overlay.active img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 300;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: background 0.2s;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .lightbox-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    /* ========== ORIGINAL STEPS FIX ========== */
+    .original-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: 40px;
+    }
+
+    .step {
+      flex: 1;
+      max-width: 220px;
+    }
+
+    .step-arrow {
+      flex: 0 0 auto;
+      padding: 0 12px;
+    }
+
+    @media (max-width: 640px) {
+      .original-steps {
+        flex-direction: column;
+        gap: 0;
+      }
+      .step {
+        max-width: 100%;
+        width: 100%;
+      }
+      .step-arrow {
+        padding: 8px 0;
+        transform: rotate(90deg);
+      }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      .breaking-news { animation: none; }
+      .scroll-indicator { display: none; }
+      .price-card { break-inside: avoid; }
+      .gallery-item .overlay { opacity: 1; }
+      .hero { min-height: auto; padding: 40px 20px; }
+      .lightbox-overlay { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="breaking-news">BREAKING NEWS</div>
+    <h1>
+      容疑者Tシャツ
+      <span>by マリア大先生</span>
+    </h1>
+    <p class="hero-subtitle">
+      ニュース速報風のデザインで、あなたや大切な人を<strong>「容疑者」</strong>に。<br>
+      マリア先生の鋭すぎるコメントが光る、世界に一つだけのTシャツ。
+    </p>
+    <div class="scroll-indicator">SCROLL</div>
+  </header>
+
+  <!-- ===== GALLERY: 容疑者シリーズ ===== -->
+  <section class="gallery-section">
+    <div class="section-label">LINEUP</div>
+    <h2 class="section-title">容疑者シリーズ 全10種 <span style="display:inline-block; background:#fef2f2; color:#ef4444; font-size:13px; padding:4px 14px; border-radius:50px; margin-left:8px; vertical-align:middle; font-weight:700;">¥5,000</span></h2>
+    <p class="section-desc">
+      松本健太郎容疑者(27)のあらゆる姿を収めた全10デザイン。<br>
+      マリア先生渾身のコメントと共にお届けします。
+    </p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('images/tshirt01.png')">
+        <span class="gallery-number">1</span>
+        <img src="images/tshirt01.png" alt="容疑者Tシャツ 01" loading="lazy">
+        <div class="overlay"><span class="overlay-text">無職 松本健太郎 容疑者(27)<br>夜の公園で爆音を流しラジオ体操をしていた疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt02.png')">
+        <span class="gallery-number">2</span>
+        <img src="images/tshirt02.png" alt="容疑者Tシャツ 02" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 起業家 松本健太郎 容疑者(27)<br>大阪某所で違法パーティーを主催した疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt03.png')">
+        <span class="gallery-number">3</span>
+        <img src="images/tshirt03.png" alt="容疑者Tシャツ 03" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 起業家 松本健太郎 容疑者(27)<br>「AI宝くじ予想」と偽り販売した疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt04.png')">
+        <span class="gallery-number">4</span>
+        <img src="images/tshirt04.png" alt="容疑者Tシャツ 04" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 起業家 松本健太郎 容疑者(27)<br>深夜の路上で公衆衛生を著しく損なう行為を行った疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt06.png')">
+        <span class="gallery-number">5</span>
+        <img src="images/tshirt06.png" alt="容疑者Tシャツ 05" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 起業家 松本健太郎 容疑者(27)<br>自販機の"つめた〜い"を"ぬるい"に書き換えた疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt07.png')">
+        <span class="gallery-number">6</span>
+        <img src="images/tshirt07.png" alt="容疑者Tシャツ 06" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 起業家 松本健太郎 容疑者(27)<br>「来月には入籍する」と偽り3年間更新し続けた疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt08.png')">
+        <span class="gallery-number">7</span>
+        <img src="images/tshirt08.png" alt="容疑者Tシャツ 07" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 横島PR大使 松本健太郎 容疑者(27)<br>横島の海岸にて、密漁の疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt09.png')">
+        <span class="gallery-number">8</span>
+        <img src="images/tshirt09.png" alt="容疑者Tシャツ 08" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 起業家 松本健太郎 容疑者(27)<br>「ストレス解消術」と偽り客を無言で30分座らせていた疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt10.png')">
+        <span class="gallery-number">9</span>
+        <img src="images/tshirt10.png" alt="容疑者Tシャツ 09" loading="lazy">
+        <div class="overlay"><span class="overlay-text">自称 音楽家 松本健太郎 容疑者(27)<br>プロ歌手を名乗りFC限定と称して連絡先を回収した疑い</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('images/tshirt11.png')">
+        <span class="gallery-number">10</span>
+        <img src="images/tshirt11.png" alt="容疑者Tシャツ 10" loading="lazy">
+        <div class="overlay"><span class="overlay-text">無職 松本健太郎 容疑者(27)<br>"佐々木舞香と交際中"という妄想を抱き婚姻届を偽造した疑い</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECRET SECTION ===== -->
+  <div class="secret-section">
+    <div class="inner">
+      <div class="secret-badge">SECRET</div>
+      <h2>シークレット<em>大里</em>Tシャツ</h2>
+      <p>
+        大里尊の写真にマリア先生のコメントを添えた限定Tシャツ。
+      </p>
+
+      <div class="secret-content">
+        <div class="secret-image" onclick="openLightbox('images/tshirt_osato.png')" style="cursor:pointer;">
+          <img src="images/tshirt_osato.png" alt="シークレット大里Tシャツ">
+        </div>
+        <div class="secret-info">
+          <h3>大里 尊 容疑者(37)</h3>
+          <p>
+            自称マーケター・大里尊が容疑者に。<br>
+            マリア先生の切れ味鋭いコメントが冴えわたる一枚。<br>
+            健太郎シリーズとはまた違うテイストをお楽しみください。
+          </p>
+          <div class="secret-price-tag">¥6,000（税込）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ORIGINAL SECTION ===== -->
+  <div class="original-section">
+    <div class="inner">
+      <div class="original-badge">CUSTOM ORDER</div>
+      <h2><em>オリジナル</em>Tシャツ</h2>
+      <p>
+        あなたの好きな写真をマリア先生に共有するだけ。<br>
+        マリア大先生が、あなた（または大切な誰か）を<br>
+        「容疑者」に仕立て上げます。<br>
+        誕生日・結婚祝い・卒業記念・内輪ネタに最適。
+      </p>
+
+      <div class="original-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>写真を送る</h4>
+          <p>お好きな写真を<br>マリア先生に共有</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>コメント作成</h4>
+          <p>マリア先生が<br>容疑者風コメントを作成</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>完成・お届け</h4>
+          <p>世界に一枚の<br>オリジナルTシャツが届く</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRICE TABLE (CARDS) ===== -->
+  <div class="price-section">
+    <div class="inner">
+      <div class="section-label">PRICE LIST</div>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-desc">
+        3つのプランからお選びいただけます。<br>
+        用途に合わせてお好みの一枚をどうぞ。
+      </p>
+
+      <div class="price-cards">
+
+        <!-- 容疑者シリーズ -->
+        <div class="price-card featured">
+          <div class="card-icon">🚨</div>
+          <div class="card-name">容疑者シリーズTシャツ</div>
+          <div class="card-desc">
+            マリア先生が生み出した伝説の健太郎Tシャツ。<br>
+            既存デザイン10種類から選べます。
+          </div>
+          <div class="card-price">
+            <span class="yen">¥</span>
+            <span class="amount">5,000</span>
+            <span class="tax">(税込)</span>
+          </div>
+          <ul class="card-features">
+            <li>既存デザイン10種類から選択</li>
+            <li>松本健太郎容疑者(27)シリーズ</li>
+            <li>マリア先生の秀逸コメント入り</li>
+            <li>即納可能</li>
+          </ul>
+        </div>
+
+        <!-- シークレット大里 -->
+        <div class="price-card secret">
+          <div class="card-icon">🔮</div>
+          <div class="card-name">シークレット大里Tシャツ</div>
+          <div class="card-desc">
+            大里尊の秘蔵デザイン。<br>
+            マリア先生のコメント入りの限定アイテム。
+          </div>
+          <div class="card-price">
+            <span class="yen">¥</span>
+            <span class="amount">6,000</span>
+            <span class="tax">(税込)</span>
+          </div>
+          <ul class="card-features">
+            <li>大里尊容疑者(37)デザイン</li>
+            <li>マリア先生の秀逸コメント入り</li>
+            <li>限定レアアイテム</li>
+            <li>即納可能</li>
+          </ul>
+        </div>
+
+        <!-- オリジナル -->
+        <div class="price-card original">
+          <div class="card-icon">👑</div>
+          <div class="card-name">オリジナルTシャツ</div>
+          <div class="card-desc">
+            あなたの写真をマリア先生に送ると、<br>
+            容疑者風コメントを添えて完成させます。
+          </div>
+          <div class="card-price">
+            <span class="yen">¥</span>
+            <span class="amount">8,000</span>
+            <span class="tax">(税込)</span>
+          </div>
+          <ul class="card-features">
+            <li>好きな写真を送るだけ</li>
+            <li>マリア先生がコメントを作成</li>
+            <li>世界に一枚だけのオリジナル</li>
+            <li>プレゼントにも最適</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY TABLE ===== -->
+  <div class="summary-section">
+    <div class="inner">
+      <div class="section-label">SUMMARY</div>
+      <h2 class="section-title">料金一覧</h2>
+
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>価格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="product-name">
+                容疑者シリーズTシャツ
+                <span class="table-badge badge-red">人気No.1</span>
+              </div>
+              <div class="product-desc">既存の健太郎Tシャツ（全10種）から選べる。マリア先生のコメント入り。</div>
+            </td>
+            <td class="price-cell">
+              ¥5,000
+              <span class="tax-note">税込</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="product-name">
+                シークレット大里Tシャツ
+                <span class="table-badge badge-purple">限定</span>
+              </div>
+              <div class="product-desc">大里尊の既存デザイン。マリア先生のコメント入り限定アイテム。</div>
+            </td>
+            <td class="price-cell">
+              ¥6,000
+              <span class="tax-note">税込</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="product-name">
+                オリジナルTシャツ
+                <span class="table-badge badge-gold">カスタム</span>
+              </div>
+              <div class="product-desc">好きな写真を共有 → マリア先生がコメントを考えて作成。世界に一枚のオリジナル。</div>
+            </td>
+            <td class="price-cell">
+              ¥8,000
+              <span class="tax-note">税込</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>
+      デザイン・コメント制作：<span class="maria">マリア大先生</span>
+    </p>
+    <p class="contact">ご注文・お問い合わせはDMまで</p>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-close">×</div>
+    <img id="lightbox-img" src="" alt="拡大表示">
+    <div class="lightbox-hint">タップで閉じる</div>
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      var overlay = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      img.src = src;
+      overlay.style.display = 'flex';
+      requestAnimationFrame(function() {
+        overlay.classList.add('active');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      var overlay = document.getElementById('lightbox');
+      overlay.classList.remove('active');
+      setTimeout(function() {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
